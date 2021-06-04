@@ -1,4 +1,4 @@
-package com.luv2code.ecommerce.enitity;
+package com.luv2code.ecommerce.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
@@ -26,5 +26,16 @@ public class Country {
 
     @OneToMany(mappedBy = "country")
     @JsonIgnore
-    private List<Region> regions;
+    private List<State> states;
+
 }
+
+
+
+
+
+
+
+
+
+
