@@ -1,4 +1,4 @@
-package com.luv2code.ecommerce.enitity;
+package com.luv2code.ecommerce.entity;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -32,4 +32,13 @@ public class OrderItem {
     @ManyToOne
     @JoinColumn(name = "order_id")
     private Order order;
+
 }
+
+
+
+
+
+
+
+

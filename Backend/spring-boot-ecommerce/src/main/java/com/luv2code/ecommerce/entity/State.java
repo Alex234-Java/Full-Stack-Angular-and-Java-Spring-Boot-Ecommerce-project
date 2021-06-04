@@ -1,13 +1,13 @@
-package com.luv2code.ecommerce.enitity;
+package com.luv2code.ecommerce.entity;
 
 import lombok.Data;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name="region")
+@Table(name="state")
 @Data
-public class Region {
+public class State {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,4 +20,17 @@ public class Region {
     @ManyToOne
     @JoinColumn(name="country_id")
     private Country country;
+
 }
+
+
+
+
+
+
+
+
+
+
+
+

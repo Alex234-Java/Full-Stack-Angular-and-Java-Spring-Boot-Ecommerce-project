@@ -1,4 +1,4 @@
-package com.luv2code.ecommerce.enitity;
+package com.luv2code.ecommerce.entity;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -28,17 +28,28 @@ public class Customer {
     private String email;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    private Set<Order> orders= new HashSet<>();
+    private Set<Order> orders = new HashSet<>();
 
-    public void add(Order order){
+    public void add(Order order) {
 
-        if(order != null){
-            if(orders == null){
+        if (order != null) {
+
+            if (orders == null) {
                 orders = new HashSet<>();
             }
+
             orders.add(order);
             order.setCustomer(this);
         }
     }
 
 }
+
+
+
+
+
+
+
+
+

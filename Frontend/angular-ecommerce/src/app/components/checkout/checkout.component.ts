@@ -30,6 +30,8 @@ export class CheckoutComponent implements OnInit {
   shippingAddressRegions: Region[] = [];
   billingAddressRegions: Region[] = [];
 
+  storage: Storage = sessionStorage;
+
 
   constructor(private formBuilder: FormBuilder,
               private shopForm: ShopFormService,
@@ -45,7 +47,7 @@ export class CheckoutComponent implements OnInit {
       customer: this.formBuilder.group({
         firstName: new FormControl('', [Validators.required,Validators.minLength(2),Luv2ShopValidators.notOnlyWhitespace]),
         lastName: new FormControl('', [Validators.required,Validators.minLength(2),Luv2ShopValidators.notOnlyWhitespace]),
-        email: new FormControl('', [Validators.required,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')])
+        email: new FormControl(JSON.parse(this.storage.getItem('userEmail')!), [Validators.required,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')])
       }),
       shippingAddress: this.formBuilder.group({
         street: new FormControl('', [Validators.required,Validators.minLength(2),Luv2ShopValidators.notOnlyWhitespace]),
@@ -193,6 +195,8 @@ export class CheckoutComponent implements OnInit {
         }
       }
     );
+
+    this.cartService.storage.clear();
 
 
   }
